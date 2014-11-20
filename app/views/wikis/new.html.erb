@@ -1,0 +1,26 @@
+<h1>New Wiki</h1>
+<%= link_to 'Back', wikis_path %>
+
+<%= form_for @wiki do |f| %>
+  <div class='form-group'>
+    <% 
+      options = if current_user.premium_plan?
+        [['Public', 0], ['Private', 1]]
+      else
+        [['Public', 0]]
+      end 
+    %>
+    <%= f.select :private, options %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div class='form-action'>
+    <%= f.submit %>
+  </div>
+<% end %>
