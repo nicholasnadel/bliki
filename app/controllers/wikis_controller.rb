@@ -6,13 +6,12 @@ class WikisController < ApplicationController
   end
   
   def new
-    @wiki = Wiki.new
-    authorize @wiki
+    @wiki = current_user.wikis.new
+    
   end
   
   def create
     @wiki = current_user.wikis.build(wiki_params)
-    authorize @wiki
     if @wiki.save
       redirect_to wikis_url, notice: 'Wiki successfully created'
     else
@@ -32,7 +31,7 @@ class WikisController < ApplicationController
       redirect_to @wiki
     else
       flash[:error] = "There's been a problem updating this wiki"
-      render: :edit
+      render :edit
     end
   end
   

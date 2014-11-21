@@ -9,14 +9,20 @@ gem 'jquery-rails', '~> 4.0.0.beta2'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'stripe'
 gem 'devise'
-
+gem 'figaro'
+gem 'better'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0.0.beta4'
   gem 'spring'
 end
+
+group :development do
+  gem "better_errors"
+end
+
 
 group :production do
   gem 'rails_12factor'

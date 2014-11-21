@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :wikis
   resource :home, controller: 'home'
   root to: 'home#show'
+  resources :charges, only: [:new, :create]
+
 end
