@@ -1,3 +1,5 @@
 <h1>Wikis</h1>
-<%= link_to('Add a wiki', new_wiki_path) if current_user %>
 <%= render @wikis %>
+<br>
+
+<%= link_to('New Wiki', new_wiki_path) if current_user %>
