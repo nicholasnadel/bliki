@@ -38,7 +38,7 @@ class ChargesController < ApplicationController
   def new
     @stripe_btn_data = {
      key: "#{ Rails.configuration.stripe[:publishable_key] }",
-     email: current_user.email,
+#      email: current_user.email,
      description: "Blocipedia Membership - #{current_user}",
      amount: 2500 
     }

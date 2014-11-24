@@ -11,10 +11,12 @@
       <% if current_user %>
       Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       <% else %>
-      <%= link_to "Sign In", new_user_session_path %> or 
-      <%= link_to "Sign Up", new_user_registration_path %>
-      <%= link_to 'Upgrade', new_charge_path %> Upgrade
-      <% end %>
+<!--     <div class="container">
+      <ul class="nav nav-tabs">
+        <li><%= link_to "Sign In", new_user_session_path %></li> or 
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to 'Upgrade your account', new_charge_path %> </li>
+      <% end %> -->
    </div>
   
   <body>
