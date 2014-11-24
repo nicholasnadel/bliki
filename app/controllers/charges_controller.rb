@@ -1,6 +1,6 @@
 class ChargesController < ApplicationController
   def create
-    @amount = params[:amount]
+    @amount = 2000
 
     # Creates a Stripe Customer object, for associating
     # with the charge
@@ -17,8 +17,13 @@ class ChargesController < ApplicationController
         description: "Blocipedia Membership = #{current_user.email}",
         currency: 'usd'
       )
+      
+      Charge.create(
+        user: current_user, 
+        stripe_charge_id: charge.id,
+        amount: @amount)
 
-      if current_user.update(premium: true)
+      if current_user.update(role: 'premium')
         flash[:success] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
         redirect_to edit_user_registration_path
       else
@@ -36,6 +41,7 @@ class ChargesController < ApplicationController
   end
 
   def new
+    @charge = Charge.new
     @stripe_btn_data = {
      key: "#{ Rails.configuration.stripe[:publishable_key] }",
 #      email: current_user.email,

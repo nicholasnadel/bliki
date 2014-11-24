@@ -7,15 +7,15 @@ class User < ActiveRecord::Base
   has_many :wikis
   
   def standard?
-    role == :standard
+    role.to_sym == :standard
   end
   
   def premium?
-    role == :premium
+    role.to_sym == :premium
   end
   
   def admin?
-    role == :admin
+    role.to_sym == :admin
   end
   
 end

@@ -1,4 +1,4 @@
-<form action="/charge" method="POST">
+<%= form_for @charge do |f| %>
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_2duH4rB4GnKy1jo2U7PYOhCN"
@@ -7,4 +7,4 @@
     data-description="2 widgets ($20.00)"
     data-amount="2000">
   </script>
-</form>
+<% end %>
