@@ -24,6 +24,7 @@ class WikisController < ApplicationController
     authorize @wiki
   end
   
+  
   def update
     @wiki = Wiki.find(params[:id])
     authorize @wiki
@@ -39,6 +40,20 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     authorize @wiki
   end
+  
+  def destroy
+     @wiki = Wiki.find(params[:id])
+     title = @wiki.title
+ 
+     authorize @wiki
+     if @wiki.destroy
+       flash[:notice] = "\"#{title}\" was deleted successfully."
+       redirect_to wikis_path
+     else
+       flash[:error] = "There was an error deleting the topic."
+       render :show
+     end
+   end
   
   private
   
