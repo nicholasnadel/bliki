@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124171303) do
+ActiveRecord::Schema.define(version: 20141126172531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 20141124171303) do
 
   add_index "charges", ["stripe_charge_id"], name: "index_charges_on_stripe_charge_id", using: :btree
   add_index "charges", ["user_id"], name: "index_charges_on_user_id", using: :btree
+
+  create_table "collaborates", force: true do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "collaborations", force: true do |t|
+    t.integer  "collaborator_id"
+    t.integer  "wiki_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "collaborations", ["collaborator_id"], name: "index_collaborations_on_collaborator_id", using: :btree
+  add_index "collaborations", ["wiki_id"], name: "index_collaborations_on_wiki_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",         null: false

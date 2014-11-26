@@ -14,6 +14,8 @@ gem 'devise'
 gem 'figaro'
 gem 'better'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'redcarpet'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0.0.beta4'

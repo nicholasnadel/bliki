@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_many :wikis
+  has_many :collaborations
+  has_many :collaborated_wikis, through: :collaborations, foreign_key: :wiki_id
   
   def standard?
     role == :standard
