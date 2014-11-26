@@ -1,4 +1,9 @@
 <div class='wiki'>
+  <% if current_user %>
+    <%= link_to wiki.title, wiki %>
+  <% end %>
   
-  <%= link_to wiki.title, wiki %>
+<!--   How do I correctly display private wikis?? -->
+
+  
 </div>

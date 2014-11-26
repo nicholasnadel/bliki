@@ -4,17 +4,20 @@
     <div class="container">
       <ul class="nav nav-tabs">
       <% if !current_user %>
+        <li><%= link_to 'Sign up for free', new_user_registration_path %></li>
         <li><%= link_to 'Sign in', new_user_session_path %></li>
-        <li><%= link_to 'Sign up for free', new_user_registration_path %></li>or 
-        <li><%= link_to 'Start your free premium trial today!', new_charge_path %></li>
+        <li><%= link_to 'Premium Trial', new_charge_path %></li>
       </ul>
     </div>
-      
+      <% else if current_user.admin? || current_user.premium? %>
+    <li><%= link_to 'My Wikis', wikis_path %></li>
+
       <% else %>
-        <li><%= link_to 'Public Wikis', wikis_path %></li>
+        <li><%= link_to 'Wikis', wikis_path %></li>
         <li><%= link_to 'Upgrade your account', new_charge_path %> </li>
       
       <% end %>
+    <% end %>
     </ul>
   </nav>
 </div>

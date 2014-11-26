@@ -2,6 +2,23 @@
   <%= render @wikis %>
   <br>
 
+
   <%= link_to('New Wiki', new_wiki_path) if current_user %> 
   <!-- how do I accurately use button_to here? -->
+
+<br>
+<br>
+<br>
+<div class="text-center">
+    <% if current_user != nil %>
+    <% if current_user.admin? || current_user.premium? %>
+        Thank you for your support, premium user!
+      <% else %>
+        Want to support the site and be able to make private wikis? 
+        <%= link_to "Go Premium!", new_charge_path, class: 'btn btn-success' %>
+      <% end %>
+    <% else %>
+      Sign up to create and edit your own wikis!
+    <% end %>
+      </div>
 
