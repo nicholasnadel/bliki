@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'stripe'
 gem 'devise'
-gem 'figaro'
+gem 'figaro', '1.0'
 gem 'better'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'redcarpet'
