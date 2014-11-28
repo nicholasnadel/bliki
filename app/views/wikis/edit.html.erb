@@ -15,6 +15,7 @@
       </div>
       <% if @wiki.private? %>
         <div clas="form-group">
+          <h1> Collaborators </h1>
           <%= f.collection_select :collaborator_ids, User.all, :id, :email, {}, { multiple: true } %>
         </div>
       <% end %>
