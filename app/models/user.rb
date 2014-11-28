@@ -13,11 +13,11 @@ class User < ActiveRecord::Base
   end
   
   def premium?
-    role == "premium"
+    role == 'premium'
   end
   
   def admin?
-    role == :admin
+    role == 'admin'
   end
   
 end

@@ -1,5 +1,8 @@
 <h1>New Wiki</h1>
+<% if !current_user.premium? %>
 <%= link_to 'Upgrade your account to access private wikis', new_charge_path %> 
+<% end %>
+
 <br>
 
 <%= form_for @wiki do |f| %>
