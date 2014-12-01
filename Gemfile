@@ -14,6 +14,7 @@ gem 'figaro', '1.0'
 gem 'better'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'redcarpet'
+gem 'arel', '6.0.0.beta2'
 
 group :development, :test do
   gem 'byebug'

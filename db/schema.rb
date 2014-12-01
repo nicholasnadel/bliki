@@ -28,11 +28,6 @@ ActiveRecord::Schema.define(version: 20141126172531) do
   add_index "charges", ["stripe_charge_id"], name: "index_charges_on_stripe_charge_id", using: :btree
   add_index "charges", ["user_id"], name: "index_charges_on_user_id", using: :btree
 
-  create_table "collaborates", force: true do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "collaborations", force: true do |t|
     t.integer  "collaborator_id"
     t.integer  "wiki_id"
@@ -54,6 +49,10 @@ ActiveRecord::Schema.define(version: 20141126172531) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role",                   default: "standard"
