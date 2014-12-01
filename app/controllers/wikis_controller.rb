@@ -6,10 +6,7 @@ class WikisController < ApplicationController
     if current_user.premium?
       @wikis = Wiki.all
     end
-
-    end
- 
-  
+  end
   
   def new
     @wiki = current_user.wikis.new
